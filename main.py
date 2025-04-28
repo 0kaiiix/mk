@@ -1569,18 +1569,7 @@ def main():
                                 del st.session_state['processed_image']
                             st.rerun()
     
-    # 解決循環引用問題 - 懶加載API模組
-    if 'flask_installed' not in st.session_state:
-        try:
-            import flask
-            st.session_state['flask_installed'] = True
-        except ImportError:
-            if st.button("安裝Flask (僅首次運行需要)"):
-                with st.spinner("正在安裝Flask..."):
-                    import subprocess
-                    subprocess.check_call(['pip', 'install', 'flask'])
-                    st.success("安裝成功！請刷新頁面。")
-
+   
 
 # 顯示推薦項目的函數
 def display_recommendations(rec_items):
